@@ -8,3 +8,5 @@ Project include:
 
 Pattern:
 - PageObject
+---
+![](https://github.com/ProsviryakovVadim/appium-automation-test/blob/master/allure.png?raw=true)
