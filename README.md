@@ -2,7 +2,7 @@
 Project include: 
 - Maven
 - Java 1.8
-- TestNG
+- jUnit4
 - HtmlElements
 - Allure
 
