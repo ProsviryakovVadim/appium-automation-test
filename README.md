@@ -8,6 +8,20 @@ Project include:
 
 Pattern:
 - PageObject
+
+Plan:
+- Parralel run
+- Cucumber add
+- Mobile: Android
+- Desctop: Firefox
+- Remote selenoid
+- Create test for app
+- Create group tests
+- Create XMLs: regression/smoke/Mobile/WEB
+
+Run example: mvn clean test -DsuiteXml=testng.xml allure:report
+#
+
 ---
 ![](https://github.com/ProsviryakovVadim/appium-automation-test/blob/master/allure.png?raw=true)
 

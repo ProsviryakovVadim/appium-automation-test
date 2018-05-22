@@ -1,5 +1,6 @@
 package WEB.Mobile;
 
+import driver.BaseTest;
 import driver.WebDriverConfig;
 import io.qameta.allure.*;
 import org.testng.annotations.Test;
@@ -7,12 +8,10 @@ import pages.CreditsPage;
 import pages.MainPage;
 import pages.MenuPage;
 
-
-
 @Features(@Feature("Раздел \"Кредиты\""))
-public class SectionCreditTest extends WebDriverConfig {
+public class SectionCreditTest extends BaseTest {
 
-    @Test
+    @Test(dependsOnMethods = "testForExample")
     @Stories(@Story("Потребительские кредиты"))
     @Description("Выбрали поле \"Потребительские кредиты\"")
     public void personalCreditTest() {
@@ -28,7 +27,7 @@ public class SectionCreditTest extends WebDriverConfig {
         System.out.println(WebDriverConfig.driver.getCurrentUrl());
     }
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     @Stories(@Story("Рефинансирование кредитов"))
     @Description("Выбрали поле \"Рефинансирование кредитов\"")
     public void refinancingCreditTest() {
@@ -40,5 +39,12 @@ public class SectionCreditTest extends WebDriverConfig {
         mainPage.hamburgerMenuClick();
         menuPage.menuNameClick("Кредиты");
         creditsPage.creditNameClick("Рефинансирование кредитов");
+    }
+
+    @Test
+    @Stories(@Story("Запрос на одобрение"))
+    @Description("Запрос на одобрение")
+    public void testForExample(){
+        System.out.println("PASS");
     }
 }

@@ -7,10 +7,10 @@
             <class name="WEB.Mobile.SectionCreditTest"/>
         </classes>
     </test>
-    <!--<test name="Chrome">-->
-        <!--<parameter name="browser" value="Chrome"/>-->
-        <!--<classes>-->
-            <!--<class name="WEB.Desctop.SectionTWOCreditTest"/>-->
-        <!--</classes>-->
-    <!--</test>-->
+    <test name="Chrome">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="WEB.Desctop.SectionCreditTest"/>
+        </classes>
+    </test>
 </suite>
