@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-    <test name="iOS">
-        <parameter name="browser" value="iOS"/>
+<suite name="Тестирование WEB сервиса">
+    <test name="Платформа iOS 11.2, браузер Safari">
+        <parameter name="browser" value="iOS - Safari"/>
         <classes>
             <class name="WEB.Mobile.SectionCreditTest"/>
         </classes>
     </test>
-    <test name="Chrome">
-        <parameter name="browser" value="Chrome"/>
-        <classes>
-            <class name="WEB.Desctop.SectionTWOCreditTest"/>
-        </classes>
-    </test>
+    <!--<test name="Chrome">-->
+        <!--<parameter name="browser" value="Chrome"/>-->
+        <!--<classes>-->
+            <!--<class name="WEB.Desctop.SectionTWOCreditTest"/>-->
+        <!--</classes>-->
+    <!--</test>-->
 </suite>

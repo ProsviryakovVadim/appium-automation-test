@@ -1,6 +1,7 @@
 package driver;
 
 import io.appium.java_client.ios.IOSDriver;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
@@ -15,7 +16,7 @@ import java.net.URL;
 
 public class WebDriverConfig {
 
-    final static private String IOS = "iOS";
+    final static private String IOS = "iOS - Safari";
     final static private String CHROME = "Chrome";
     final static private String FIREFOX = "Firefox";
     final static private String IE = "Ie";
@@ -25,7 +26,8 @@ public class WebDriverConfig {
 
     @BeforeMethod
     @Parameters({ "browser", "urlSend"})
-    public void setUp(@Optional("iOS") String browser, @Optional("https://www.raiffeisen.ru/") String urlSend) throws Exception {
+    @Step("Выбрали платформу {0} и перешли по адресу {1}.")
+    public void setUp(@Optional("iOS - Safari") String browser, @Optional("https://www.raiffeisen.ru/") String urlSend) throws Exception {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         switch (browser) {
             case IOS:
@@ -36,6 +38,7 @@ public class WebDriverConfig {
                 capabilities.setCapability("AutomationName", "XCUITest");
                 driver = new IOSDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
                 driver.get(urlSend);
+                break;
             case CHROME:
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--window-size=1600,1400");
@@ -47,11 +50,12 @@ public class WebDriverConfig {
                 capabilities.setCapability("videoScreenSize", "1600x1200");
                 capabilities.setCapability("videoFrameRate", "24");
                 driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+                break;
         }
 
     }
-
-    @AfterMethod
+    @Step("Завершение инициализации драйвера.")
+    @AfterMethod(alwaysRun = true)
     public void tearDown() throws Exception {
         driver.quit();
     }

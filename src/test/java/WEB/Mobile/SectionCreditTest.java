@@ -1,8 +1,7 @@
 package WEB.Mobile;
 
 import driver.WebDriverConfig;
-import io.qameta.allure.Description;
-import io.qameta.allure.junit4.DisplayName;
+import io.qameta.allure.*;
 import org.testng.annotations.Test;
 import pages.CreditsPage;
 import pages.MainPage;
@@ -10,11 +9,11 @@ import pages.MenuPage;
 
 
 
-@DisplayName("Раздел \"Кредиты\"")
+@Features(@Feature("Раздел \"Кредиты\""))
 public class SectionCreditTest extends WebDriverConfig {
 
     @Test
-    @DisplayName("Потребительские кредиты")
+    @Stories(@Story("Потребительские кредиты"))
     @Description("Выбрали поле \"Потребительские кредиты\"")
     public void personalCreditTest() {
 
@@ -29,8 +28,8 @@ public class SectionCreditTest extends WebDriverConfig {
         System.out.println(WebDriverConfig.driver.getCurrentUrl());
     }
 
-    @Test(enabled = false)
-    @DisplayName("Рефинансирование кредитов")
+    @Test(enabled = true)
+    @Stories(@Story("Рефинансирование кредитов"))
     @Description("Выбрали поле \"Рефинансирование кредитов\"")
     public void refinancingCreditTest() {
 
