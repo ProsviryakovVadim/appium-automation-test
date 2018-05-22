@@ -27,7 +27,7 @@ public class WebDriverConfig {
     /**
      * Path drivers browser
      */
-    private static final String WINDOWS_CHROME_DRIVER_PATH = "src/test/resources/drivers/chromedriver";
+    private static final String CHROME_DRIVER_PATH = "src/test/resources/drivers/chromedriver";
 
     /**
      *  WebDriver
@@ -36,13 +36,15 @@ public class WebDriverConfig {
     public static RemoteWebDriver remoteWebDriver;
 
 
-    public static void setDriver(String browser) throws Exception {
+    static void setDriver(String browser, String urlSend) throws Exception {
         if (mockKey) {
             LOG.info("Run selenium grid");
             setUpGrid(browser);
+            remoteWebDriver.get(urlSend);
         } else {
             LOG.info("Run selenium local");
             setUp(browser);
+            driver.get(urlSend);
         }
         driver.manage().window().maximize();
     }
@@ -60,7 +62,7 @@ public class WebDriverConfig {
                 driver = new IOSDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
                 break;
             case CHROME:
-                System.setProperty("webdriver.chrome.driver", WINDOWS_CHROME_DRIVER_PATH);
+                System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_PATH);
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--window-size=1600,1400");
                 capabilities = DesiredCapabilities.chrome();
@@ -83,7 +85,7 @@ public class WebDriverConfig {
                 driver = new IOSDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
                 break;
             case CHROME:
-                System.setProperty("webdriver.chrome.driver", WINDOWS_CHROME_DRIVER_PATH);
+                System.setProperty("webdriver.chrome.driver", CHROME_DRIVER_PATH);
                 ChromeOptions options = new ChromeOptions();
                 options.addArguments("--window-size=1600,1400");
                 capabilities = DesiredCapabilities.chrome();

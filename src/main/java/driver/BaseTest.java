@@ -14,8 +14,7 @@ public class BaseTest {
     @Parameters({ "browser", "urlSend"})
     @Step("Выбрали платформу {0} и перешли по адресу {1}.")
     public void setUp(@Optional("iOS - Safari") String browser, @Optional("https://www.raiffeisen.ru/") String urlSend) throws Exception {
-        setDriver(browser);
-        driver.get(urlSend);
+        setDriver(browser, urlSend);
     }
 
     @Step("Завершение инициализации драйвера.")
