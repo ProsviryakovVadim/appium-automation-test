@@ -10,7 +10,7 @@ Pattern:
 - PageObject
 
 Plan:
-- Parralel run
+- Parallel run
 - Cucumber add
 - Mobile: Android
 - Desctop: Firefox
